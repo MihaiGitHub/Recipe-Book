@@ -6,6 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  // Need output to make it listenable from the parent component, the app component
   @Output() featureSelected = new EventEmitter<string>();
 
   constructor() { }
