@@ -23,4 +23,11 @@ export class ShoppingListService {
         // When Ingredient array is changed call and emit a copy of the array
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
+
+    addIngredients(ingredients: Ingredient[]){
+        // Add all ingredients in one go and then emit event
+        this.ingredients.push(...ingredients); // ES6 feature to turn an array of elements into a list of elements
+        // Need to emit that ingredients have changed
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
 }

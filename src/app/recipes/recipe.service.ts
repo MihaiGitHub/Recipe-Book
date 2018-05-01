@@ -1,9 +1,12 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 // Import Recipe model to use in recipe service
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
+// To inject a service into another service
+@Injectable()
 // Service to manage our recipes
 export class RecipeService {
     // Call a method in our service that will transform the data instead of chaining down components
@@ -32,8 +35,14 @@ export class RecipeService {
         )
       ];
 
+    constructor(private slService: ShoppingListService){}
+
     getRecipes(){
         // Will return a new array, which is an exact copy of the array in the service file
         return this.recipes.slice();
+    }
+
+    addIngredientsToShoppingList(ingredients: Ingredient[]){
+        this.slService.addIngredients(ingredients);
     }
 }
