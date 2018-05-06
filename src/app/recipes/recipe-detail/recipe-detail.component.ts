@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -8,14 +9,22 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  // Adding Input so it can be set from outside; Must import Recipe model above to be able to use it in this component
-  @Input() recipe: Recipe;
+
+  recipe: Recipe;
+  id: number;
 
   // Getting access to RecipeService
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('recipe ',this.recipe)
+    // We want to react to changes in the URL id from the same page so we want to subscribe to an observable
+    this.route.params.subscribe(
+        (params: Params) => {
+          // React to a new ID
+          this.id = +params['id']; // This will return a string so need to cast it to a number with +
+          this.recipe = this.recipeService.getRecipe(this.id);
+        }
+    );
   }
 
   onAddToShoppingList(){
