@@ -18,7 +18,7 @@ export class RecipeService {
         new Recipe(
             'Tasty Schnitzel', 
             'This is simply a test', 
-            'https://cdn.pixabay.com/photo/2017/07/16/10/43/recipe-2508859_960_720.jpg',
+            'http://images.media-allrecipes.com/images/68135.jpg',
             [
                 new Ingredient('Meat', 1),
                 new Ingredient('French Fries', 20)
@@ -27,7 +27,7 @@ export class RecipeService {
         new Recipe(
             'Big Fat Burger', 
             'This is simply a test', 
-            'https://cdn.pixabay.com/photo/2017/07/16/10/43/recipe-2508859_960_720.jpg',
+            'http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/11/25/0/FNK_pan-seared-salmon-with-kale-apple-salad_s4x3.jpg.rend.hgtvcom.966.725.jpeg',
             [
                 new Ingredient('Buns', 2),
                 new Ingredient('Meat', 1)
