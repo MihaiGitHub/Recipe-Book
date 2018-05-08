@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 // Import Recipe model to use in recipe service
 import { Recipe } from './recipe.model';
@@ -9,9 +9,6 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable()
 // Service to manage our recipes
 export class RecipeService {
-    // Call a method in our service that will transform the data instead of chaining down components
-    // New public property; it will be an object instantiated by using an EventEmitter
-    recipeSelected = new EventEmitter<Recipe>(); // It will hold recipe data
 
     private recipes: Recipe[] = [
         // Need to pass in an array of ingredients for each Recipe now

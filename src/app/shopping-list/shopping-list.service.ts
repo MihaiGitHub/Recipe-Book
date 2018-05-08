@@ -1,9 +1,9 @@
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 export class ShoppingListService {
     // Inform component that new data is available; it will emit our Ingredient array
-    ingredientsChanged = new EventEmitter<Ingredient[]>();
+    ingredientsChanged = new Subject<Ingredient[]>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),
@@ -21,13 +21,13 @@ export class ShoppingListService {
         // Access ingredient array and push new ingredient into it
         this.ingredients.push(ingredient);
         // When Ingredient array is changed call and emit a copy of the array
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
     }
 
     addIngredients(ingredients: Ingredient[]){
         // Add all ingredients in one go and then emit event
         this.ingredients.push(...ingredients); // ES6 feature to turn an array of elements into a list of elements
         // Need to emit that ingredients have changed
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
     }
 }
