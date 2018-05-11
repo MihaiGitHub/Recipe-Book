@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <!-- #f to reference the form and pass it to onAddItem method;
       and ngForm to get access to the js form object angular creates behind the scenes-->
-    <form (ngSubmit)="onAddItem()" #f="ngForm">
+    <form (ngSubmit)="onAddItem(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
