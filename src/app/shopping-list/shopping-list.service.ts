@@ -4,6 +4,8 @@ import { Subject } from 'rxjs/Subject';
 export class ShoppingListService {
     // Inform component that new data is available; it will emit our Ingredient array
     ingredientsChanged = new Subject<Ingredient[]>();
+    // Add new subject that will hold a number in the end
+    startedEditing = new Subject<number>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),

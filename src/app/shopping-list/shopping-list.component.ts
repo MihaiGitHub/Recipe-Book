@@ -30,6 +30,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     )
   }
 
+  onEditItem(index: number){ // Get this info to the shopping edit component using the service
+    // Reaching out to a subject in the service to listen to the onclick
+    // Use startedEditing and emit a new value; pass on the index to the subject
+    this.slService.startedEditing.next(index);
+  }
+
   ngOnDestroy(){ // Destroy observable to prevent any memory leaks
     this.subscription.unsubscribe();
   }

@@ -2,8 +2,9 @@
     <div class="col-xs-10">
         <app-shopping-edit></app-shopping-edit>
         <hr>
-        <ul class="list-group">
-            <a class="list-group-item" style="cursor:pointer;" *ngFor="let ingredient of ingredients">
+        <ul class="list-group"><!-- Get the ID of the ingredient and pass it to onEditItem -->
+            <a  *ngFor="let ingredient of ingredients; let i = index" class="list-group-item" style="cursor:pointer;"
+                (click)="onEditItem(i)" >
                 {{ ingredient.name }} ({{ ingredient.amount }})
             </a>
         </ul>
