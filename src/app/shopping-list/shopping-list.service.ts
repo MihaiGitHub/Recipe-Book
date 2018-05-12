@@ -18,6 +18,10 @@ export class ShoppingListService {
         // If need the real array, do not use slice()
         return this.ingredients.slice();
     }
+
+    getIngredient(index: number){
+        return this.ingredients[index];
+    }
     // Will receive an ingredient of type ingredient
     addIngredient(ingredient: Ingredient){
         // Access ingredient array and push new ingredient into it
