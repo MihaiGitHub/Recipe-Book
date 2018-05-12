@@ -28,6 +28,10 @@ export class RecipeEditComponent implements OnInit {
     );
   }
 
+  onSubmit(){
+    console.log(this.recipeForm);
+  }
+
   // Initializing a reactive form; either empty if new recipe or in edit mode with existing recipe
   private initForm(){
     let recipeName = '';
