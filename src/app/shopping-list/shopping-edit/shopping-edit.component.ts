@@ -12,6 +12,7 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
+  // Access to the form when you can't pass the form from the HTML file i.e. (ngSubmit)="onAddItem(f)" #f="ngForm"
   @ViewChild('f') slForm: NgForm;
   subscription: Subscription;
   editMode = false;
@@ -49,6 +50,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     }
     this.editMode = false;
     form.reset();
+  }
+
+  onClear(){
+    this.slForm.reset();
+    this.editMode = false;
   }
 
   ngOnDestroy(){ // Clean up the subscription so as not to create a memory leak
