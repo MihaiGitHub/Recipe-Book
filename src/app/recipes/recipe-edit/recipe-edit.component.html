@@ -30,14 +30,16 @@
           <textarea formControlName="description" type="text" id="description" class="form-control" rows="6"></textarea>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
+      <div class="row"><!-- formArrayName is bound to ingredients in typescript file-->
+        <div class="col-xs-12" formArrayName="ingredients">
+          <div class="row"
+          *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" 
+          [formGroupName]="i">
             <div class="col-xs-8">
-              <input type="text" class="form-control">
+              <input formControlName="name" type="text" class="form-control">
             </div>
             <div class="col-xs-2">
-              <input type="number" class="form-control">
+              <input formControlName="amount" type="number" class="form-control">
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger">X</button>
