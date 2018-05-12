@@ -36,4 +36,9 @@ export class ShoppingListService {
         // Need to emit that ingredients have changed
         this.ingredientsChanged.next(this.ingredients.slice());
     }
+
+    updateIngredient(index: number, newIngredient: Ingredient){
+        this.ingredients[index] = newIngredient;
+        this.ingredientsChanged.next(this.ingredients.slice());
+    }
 }
