@@ -32,7 +32,7 @@
       </div>
       <div class="row"><!-- formArrayName is bound to ingredients in typescript file-->
         <div class="col-xs-12" formArrayName="ingredients">
-          <div class="row"
+          <div class="row" style="margin-top: 10px;"
           *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" 
           [formGroupName]="i">
             <div class="col-xs-8">
@@ -43,6 +43,12 @@
             </div>
             <div class="col-xs-2">
               <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12"><!-- Type button so it doesn't submit form everytime you add a new ingredient-->
+              <button type="button" class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
             </div>
           </div>
         </div>

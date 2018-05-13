@@ -32,6 +32,17 @@ export class RecipeEditComponent implements OnInit {
     console.log(this.recipeForm);
   }
 
+  onAddIngredient(){
+    // Add a new control to the array of Form Controls; Access recipeForm and get ingredients array
+    // Typescript doesn't know the ingredients are an array so have to cast it as an array
+    (<FormArray>this.recipeForm.get('ingredients')).push( // Create new ingredient and push it into ingredient []
+      new FormGroup({
+        'name': new FormControl(),
+        'amount': new FormControl()
+      })
+    );
+  }
+
   // Initializing a reactive form; either empty if new recipe or in edit mode with existing recipe
   private initForm(){
     let recipeName = '';
