@@ -4,11 +4,14 @@ import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs/Subject';
 
 // To inject a service into another service
 @Injectable()
 // Service to manage our recipes
 export class RecipeService {
+    // Recipes changed event which will pass an array of Recipes as a value
+    recipesChanged = new Subject<Recipe[]>();
 
     private recipes: Recipe[] = [
         // Need to pass in an array of ingredients for each Recipe now
@@ -46,5 +49,18 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredient[]){
         this.slService.addIngredients(ingredients);
+    }
+
+    addRecipe(recipe: Recipe){
+        this.recipes.push(recipe);
+        // Refresh recipes array; Recipe changed event emits a new value (copy of new recipes)
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
+    // On update completely overwrite old recipe with new info
+    updateRecipe(index: number, newRecipe: Recipe){
+        this.recipes[index] = newRecipe;
+        // Refresh recipes array, but must listen to it in ngOnInit in RecipeList component
+        this.recipesChanged.next(this.recipes.slice());
     }
 }
