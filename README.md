@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Make sure you have Node.js installed.
 
 `git clone https://github.com/MihaiGitHub/Recipe-Book.git` <br>
+`cd Recipe-Book` <br>
 `npm install` <br>
 `npm start`
 
