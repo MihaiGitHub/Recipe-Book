@@ -63,4 +63,10 @@ export class RecipeService {
         // Refresh recipes array, but must listen to it in ngOnInit in RecipeList component
         this.recipesChanged.next(this.recipes.slice());
     }
+
+    deleteRecipe(index: number){
+        this.recipes.splice(index, 1);
+        // Refresh recipes array after deleting one
+        this.recipesChanged.next(this.recipes.slice());
+    }
 }
