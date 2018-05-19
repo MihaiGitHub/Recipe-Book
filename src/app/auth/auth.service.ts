@@ -31,4 +31,10 @@ export class AuthService {
         );
         return this.token;
     }
+
+    // Method to determine if user is authenticated or not
+    isAuthenticated(){
+        // If token is not equal to null; If token is null then user is not authenticated
+        return this.token != null; // Only returns true if there is a valid token
+    }
 }
