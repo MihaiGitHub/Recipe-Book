@@ -24,6 +24,12 @@ export class AuthService {
             );
     }
 
+    // Logout using the Firebase signOut method and reset token
+    logout(){
+        firebase.auth().signOut();
+        this.token = null;
+    }
+
     // Return token from firebase package
     getToken(){
         firebase.auth().currentUser.getIdToken().then(
