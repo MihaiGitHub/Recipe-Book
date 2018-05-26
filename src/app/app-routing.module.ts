@@ -12,19 +12,13 @@ import { AuthGuard } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'recipes', pathMatch: 'full' },
-    { path: 'recipes', component: RecipesComponent, children: [
-        { path: '', component: RecipeStartComponent },
-        { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] }, // Needs to come before :id so that it does not think new is id
-        { path: ':id', component: RecipeDetailComponent },
-        { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] }
-    ] },
     { path: 'shopping-list', component: ShoppingListComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'signin', component: SigninComponent }
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
+    imports: [RouterModule.forRoot(appRoutes)], // forRoot should only be called in app-routing.module
     exports: [RouterModule]
 })
 export class AppRoutingModule {
