@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 
 // Importing ShoppingListService at the top level component so it can be used in Recipe section
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -19,23 +17,22 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     SignupComponent,
     SigninComponent
   ],
   imports: [
     BrowserModule, // contains all features of CommonModules and all features needed at time app starts
-    FormsModule,
     HttpModule,
     AppRoutingModule,
     RecipesModule,
-    SharedModule
+    SharedModule,
+    ShoppingListModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
