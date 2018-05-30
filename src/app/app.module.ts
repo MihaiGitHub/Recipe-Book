@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 
 // Importing ShoppingListService at the top level component so it can be used in Recipe section
 import { ShoppingListService } from './shopping-list/shopping-list.service';
@@ -15,13 +14,11 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
-import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent
+  declarations: [ // It's best if have only AppComponent in declarations in app.module.ts
+    AppComponent
   ],
   imports: [
     BrowserModule, // contains all features of CommonModules and all features needed at time app starts
@@ -29,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     SharedModule,
     ShoppingListModule,
-    AuthModule
+    AuthModule,
+    CoreModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
