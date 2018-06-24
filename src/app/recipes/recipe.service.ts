@@ -16,22 +16,37 @@ export class RecipeService {
     private recipes: Recipe[] = [
         // Need to pass in an array of ingredients for each Recipe now
         new Recipe(
-            'Tasty Schnitzel', 
-            'This is simply a test', 
+            'Chicken Parmigiana', 
+            'Season Chicken On Both Sides With Salt And Pepper', 
             'http://images.media-allrecipes.com/images/68135.jpg',
             [
                 new Ingredient('Meat', 1),
                 new Ingredient('French Fries', 20)
-            ]
+            ],
+            'chicken',
+            'Heat Oil In A Wok And Add Onions And Garlic Chopped And Sauté Over Medium Heat Strain The Barley By Draining Away The Water Used To Soak Them'
         ),
         new Recipe(
-            'Big Fat Burger', 
-            'This is simply a test', 
+            'Beef Burger', 
+            'Delicious hamburger served with chips', 
             'http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/11/25/0/FNK_pan-seared-salmon-with-kale-apple-salad_s4x3.jpg.rend.hgtvcom.966.725.jpeg',
             [
                 new Ingredient('Buns', 2),
                 new Ingredient('Meat', 1)
-            ]
+            ],
+            'beef',
+            ''
+        ),
+        new Recipe(
+            'Barley Mushroom Soup', 
+            'Served Hot With Breads Or Buns', 
+            'http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/11/25/0/FNK_pan-seared-salmon-with-kale-apple-salad_s4x3.jpg.rend.hgtvcom.966.725.jpeg',
+            [
+                new Ingredient('Buns', 2),
+                new Ingredient('Meat', 1)
+            ],
+            'vegan',
+            ''
         )
       ];
 
