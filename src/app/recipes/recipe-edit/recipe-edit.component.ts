@@ -64,16 +64,20 @@ export class RecipeEditComponent implements OnInit {
   // Initializing a reactive form; either empty if new recipe or in edit mode with existing recipe
   private initForm(){
     let recipeName = '';
+    let recipeType = '';
     let recipeImagePath = '';
     let recipeDescription = '';
     let recipeIngredients = new FormArray([]); // Ingredients initialized with empty value of []
+    let recipeInstructions = '';
 
     // if in edit mode grab the recipe being edited using recipe service
     if(this.editMode){
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
+      recipeType = recipe.type;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
+      recipeInstructions = recipe.instructions;
 
       // Check if existing recipe already had ingredients; they could be empty
       if(recipe['ingredients']){
@@ -94,9 +98,11 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
+      'type': new FormControl(recipeType, Validators.required),
       'imagePath': new FormControl(recipeImagePath, Validators.required),
       'description': new FormControl(recipeDescription, Validators.required),
-      'ingredients': recipeIngredients
+      'ingredients': recipeIngredients,
+      'instructions': new FormControl(recipeInstructions, Validators.required)
     });
   }
 }
