@@ -7,7 +7,7 @@
           <button (click)="onCancel()" type="button" class="btn btn-danger">Cancel</button>
         </div>
       </div>
-      <div class="row">
+      <div class="row margin-bottom">
         <div class="col-xs-12">
           <label for="name">Name</label>
           <input formControlName="name" type="text" id="name" class="form-control">
@@ -41,7 +41,7 @@
           <textarea formControlName="description" type="text" id="description" class="form-control" rows="6"></textarea>
         </div>
       </div>
-      <div class="row"><!-- formArrayName is bound to ingredients in typescript file-->
+      <div class="row margin-bottom"><!-- formArrayName is bound to ingredients in typescript file-->
         <div class="col-xs-12" formArrayName="ingredients">
           <div class="row" style="margin-top: 10px;"
           *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" 
