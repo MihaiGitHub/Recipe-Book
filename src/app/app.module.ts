@@ -11,6 +11,8 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 
+import { NguCarouselModule } from '@ngu/carousel';
+
 @NgModule({
   declarations: [ // It's best if have only AppComponent in declarations in app.module.ts
     AppComponent
@@ -22,7 +24,8 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     ShoppingListModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    NguCarouselModule
   ],
   bootstrap: [AppComponent]
 })
